@@ -37,6 +37,7 @@ void * tarefa (void* arg) {
     }
     pthread_exit(NULL);
 }
+
 // main
 int main(void){
     int countA = 0; // conta o numero de 2 no vetor
