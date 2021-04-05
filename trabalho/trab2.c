@@ -21,8 +21,16 @@ typedef struct{
 }tArgs;
 
 // tarefa
-void * trabalho(void *arg){
-
+void * tarefa(void *arg){
+    tArgs *args = (tArgs*) arg;
+    printf("thread %d\n",args->id);
+    for(int i = (args->id);i<(args->dim);i+=nthreads){
+        for(int j=0; j<(args->dim);j++){
+            for(int k=0; k<(args->dim);k++){
+                sMat[i*(args->dim)+j] += aMat[i*(args->dim)+k] * bMat[k*(args->dim)+j];
+            }
+        }
+    }
     pthread_exit(NULL);
 }
 
@@ -31,9 +39,9 @@ int main(int argc,char *argv[]){
     int dim; //dimensao da matriz de entrada
     pthread_t *tid; // indentificadores das threads
     tArgs * args; //indentificadores locais da dimensao
-    double inicio, fim, delta;
+    double inicio, fim, deltaI,deltaM,deltaF; // medidores de tempo
 
-    //inicializacao das estruturas de dados
+    GET_TIME(inicio);
     //leitura e avaliacao dos parametros de entrada
     if(argc<3) {
         printf("Digite: %s <dimensao da matriz> < numero de threads>\n",argv[0]);
@@ -42,6 +50,7 @@ int main(int argc,char *argv[]){
     dim = atoi(argv[1]);
     nthreads = atoi(argv[2]);
     if(nthreads > dim) nthreads = dim;
+    printf("a dimensao%d\n", dim);
 
     //alocacao de memoria para as estruturas de dados
     aMat = (float *) malloc(sizeof(float) * dim *dim);
@@ -56,12 +65,54 @@ int main(int argc,char *argv[]){
     //inicializando as matrizes
     for(int i=0;i<dim; i++){
         for(int  j=0;j<dim;j++){
-            aMat[i*dim+j] = 2;  //equivalente a mat[i][j]
-            bMat[i*dim+j] = 2;
+            aMat[i*dim+j] = 1;  //equivalente a mat[i][j]
+            bMat[i*dim+j] = 3;
             sMat[i*dim+j] = 0;
         }
     }
+    GET_TIME(fim)
+    deltaI = fim - inicio;
+
     //multiplicacao das matrizes
-    //finalizacao de programas
- return 0;
+    GET_TIME(inicio);
+    //alocação de estruturas
+    tid = (pthread_t *) malloc(sizeof(pthread_t)*nthreads);
+    if(tid == NULL) {puts("ERRO-- malloc\n"); return 2;}
+    args = (tArgs *) malloc(sizeof(tArgs)*nthreads);
+    if(tid == NULL) {puts("ERRO-- malloc\n"); return 2;}
+
+    // criação das trheads
+    for(int i=0; i<nthreads; i++){
+        (args+i)->id = i;
+        (args+i)->dim = dim;
+        if(pthread_create(tid+i,NULL,tarefa,(void*) (args+i))){
+            puts("ERRO--pthread_create\n");return 3;
+        }
+    }
+    //espera pelo terminao das threads
+    for(int i =0 ;i<nthreads;i++){
+        pthread_join(*(tid+i),NULL);
+    }
+    GET_TIME(fim);
+    deltaM = fim - inicio;
+    /* //Printando o pragama */
+    /* for(int i = 0;i<dim;i++){ */
+    /*     for(int j =0 ; j<dim;j++){ */
+    /*         printf("%lf ",sMat[i*dim+j]); */
+    /*     } */
+    /*     puts(""); */
+    /* } */
+    //liberacao do programa
+    GET_TIME(inicio);
+    free(aMat);
+    free(bMat);
+    free(sMat);
+    free(tid);
+    GET_TIME(fim);
+    deltaF = fim - inicio;
+    printf("tempo de inicialização: %lf\n",deltaI);
+    printf("Tempo de multiplicação: %lf\n",deltaM);
+    printf("Tempo de finalização: %lf\n",deltaF);
+
+    return 0;
 }
