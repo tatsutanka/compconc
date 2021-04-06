@@ -1,10 +1,10 @@
  <center><img src="./LogoUFRJ.png" width="300" ></center>
 
-**De**: Lucas Tatsuya Tanaka
-**DRE**: 118058149
-**Github**: [Link para o github tatsutanka](https://github.com/tatsutanka)
-**Prof**: Silvana Rossetto
-**Curso:** Computacao Concorrente (MAB-117) 2020.2 REMOTO
+**De**: Lucas Tatsuya Tanaka  
+**DRE**: 118058149  
+**Github**: [Link para o github tatsutanka](https://github.com/tatsutanka)  
+**Prof**: Silvana Rossetto  
+**Curso:** Computacao Concorrente (MAB-117) 2020.2 REMOTO  
 
 ## Ganho e Desempenho
 Sera avaliado se ouve de ganho e desempenho durante a
