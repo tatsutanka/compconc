@@ -1,0 +1,95 @@
+a dimensao 2000
+thread 0
+tempo de inicialização: 0.053874
+Tempo de multiplicação: 71.804551
+Tempo de finalização: 0.001983
+a dimensao 2000
+thread 0
+tempo de inicialização: 0.025312
+Tempo de multiplicação: 73.007617
+Tempo de finalização: 0.002501
+a dimensao 2000
+thread 0
+tempo de inicialização: 0.025716
+Tempo de multiplicação: 72.777379
+Tempo de finalização: 0.001978
+a dimensao 2000
+thread 0
+tempo de inicialização: 0.025141
+Tempo de multiplicação: 71.311480
+Tempo de finalização: 0.002133
+a dimensao 2000
+thread 0
+tempo de inicialização: 0.024561
+Tempo de multiplicação: 71.164773
+Tempo de finalização: 0.001921
+a dimensao 2000
+thread 0
+thread 1
+tempo de inicialização: 0.027298
+Tempo de multiplicação: 35.171855
+Tempo de finalização: 0.002021
+a dimensao 2000
+thread 0
+thread 1
+tempo de inicialização: 0.024900
+Tempo de multiplicação: 35.187898
+Tempo de finalização: 0.002013
+a dimensao 2000
+thread 0
+thread 1
+tempo de inicialização: 0.024595
+Tempo de multiplicação: 34.841048
+Tempo de finalização: 0.002128
+a dimensao 2000
+thread 0
+thread 1
+tempo de inicialização: 0.024705
+Tempo de multiplicação: 35.454723
+Tempo de finalização: 0.002183
+a dimensao 2000
+thread 0
+thread 1
+tempo de inicialização: 0.024439
+Tempo de multiplicação: 35.357158
+Tempo de finalização: 0.001947
+a dimensao 2000
+thread 0
+thread 1
+thread 3
+thread 2
+tempo de inicialização: 0.024532
+Tempo de multiplicação: 21.906780
+Tempo de finalização: 0.002203
+a dimensao 2000
+thread 0
+thread 1
+thread 3
+thread 2
+tempo de inicialização: 0.029269
+Tempo de multiplicação: 22.166357
+Tempo de finalização: 0.002070
+a dimensao 2000
+thread 0
+thread 1
+thread 3
+thread 2
+tempo de inicialização: 0.026465
+Tempo de multiplicação: 21.604954
+Tempo de finalização: 0.002304
+a dimensao 2000
+thread 0
+thread 1
+thread 3
+thread 2
+tempo de inicialização: 0.028998
+Tempo de multiplicação: 21.416219
+Tempo de finalização: 0.002271
+a dimensao 2000
+thread 0
+thread 1
+thread 3
+thread 2
+tempo de inicialização: 0.030029
+Tempo de multiplicação: 21.445028
+Tempo de finalização: 0.002370

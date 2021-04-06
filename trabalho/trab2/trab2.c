@@ -50,7 +50,7 @@ int main(int argc,char *argv[]){
     dim = atoi(argv[1]);
     nthreads = atoi(argv[2]);
     if(nthreads > dim) nthreads = dim;
-    printf("a dimensao%d\n", dim);
+    printf("a dimensao %d\n", dim);
 
     //alocacao de memoria para as estruturas de dados
     aMat = (float *) malloc(sizeof(float) * dim *dim);
