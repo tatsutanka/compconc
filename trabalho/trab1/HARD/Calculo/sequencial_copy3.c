@@ -67,7 +67,7 @@ int main(void) {
     int size = 3;
     int *matrix;
     matrix = (int*)malloc(sizeof(int)*SQR(size));
-    int det_m = laplace_det(size, matrix, &is_valid);
+    int det_m = laplace_det(size, &matrix, &is_valid);
 
     if(is_valid) {
         printf("determinant %d\n", det_m);

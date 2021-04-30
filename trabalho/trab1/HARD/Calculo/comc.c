@@ -1,9 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
-//Código por Henrique Felipe (GitHub: HenriqueIni) 
-//Supõe-se que a matriz 'a' é válida e de ordem n x n
+/* De:Lucas Tatsuya Tanaka */
+/* DRE:118058149 */
+/* Email:tanaka@dcc.ufrj.br */
+/* Github:https://github.com/tatsutanka */
+/* Data:23/04/2021*/
+
+/*O objetivo do trabakho é o calculo do determinante de uma matriz atravez do
+metodo de Sarrus e Laplace */
+
+#include<stdio.h>
+#include<stdlib.h>
+
 double detLaplace(int n, double a[n][n]){
     if(n == 1){ //Caso base: matriz 1x1
+        printf("----sozinho: %f\n",a[0][0]);
         return a[0][0];
     }else{
         double det = 0;
@@ -28,38 +37,39 @@ double detLaplace(int n, double a[n][n]){
                     j_aux = 0;
                 }
                 double factor = (i % 2 == 0)? a[0][i] : -1 *a[0][i];
-                printf("Fator:%f\n",factor);
-                printf("Det:%f\n",det);
+                printf(";;Fator:%f\n",factor);
+                printf("**Det:%f\n",det);
                 det = det + factor * detLaplace(n - 1, aux);
             }
         }
         return det;
     }
 }
-//Testes
-int main() {
-    double a[5][5] = {{1,8,3,5,0},
-                      {0,-1,7,9,1},
-                      {0,0,3,2,4},
-                      {0,0,0,-6,-1},
-                      {0,0,0,0,2}};
-    printf("%.16f\n", detLaplace(5, a));
-    double b[3][3] = {{2,-2,-1},
-                      {3,-4,1},
-                      {1,1,5}};
-    printf("%.16f\n", detLaplace(3, b));
-    double c[3][3] = {{0,1,2},
-                      {3,4,5},
-                      {6,7,8}};
-    printf("%.16f\n", detLaplace(3, c));
-    double *d;
-    d = (double*)malloc(sizeof(double)*3*3);
-    for(int i = 0;i<3;i++){
-        for(int j = 0;j<3;j++){
-            d[i*3+j] = i*3+j;
+
+// main
+int main(int argc, char * argv[]){
+    double *a;
+    int size = 3;
+    a = (double *)malloc(sizeof(double*)*size*size);
+    if( a == NULL){printf("ERRO--malloc\n"); return 2;}
+    
+    for (int i=0;i<size;++i){
+        for(int j=0;j<size;j++){
+            a[i*size+j] = i*size+j;
         }
     }
-            
-    //printf("%.16f\n", detLaplace(3, d));
-    return 0;
+    for (int i=0;i<size;i++){
+        for(int j = 0 ;j<size;j++){
+            printf("%f ",a[i*size+j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    
+    printf("%lf\n", detLaplace(size,&a));
+
+    free(a);
+    printf("FINAL\n");
+ return 0;
 }
+

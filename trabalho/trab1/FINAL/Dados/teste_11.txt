@@ -1,0 +1,45 @@
+
+O determiante via Thread: -2969909
+2.492997 
+
+O determiante via Thread: -2969909
+2.473919 
+
+O determiante via Thread: -2969909
+2.476583 
+
+O determiante via Thread: -2969909
+2.450770 
+
+O determiante via Thread: -2969909
+2.470243 
+
+O determiante via Thread: -2969909
+1.375567 
+
+O determiante via Thread: -2969909
+1.374090 
+
+O determiante via Thread: -2969909
+1.373691 
+
+O determiante via Thread: -2969909
+1.373926 
+
+O determiante via Thread: -2969909
+1.371144 
+
+O determiante via Thread: -2969909
+0.703261 
+
+O determiante via Thread: -2969909
+0.707035 
+
+O determiante via Thread: -2969909
+0.702543 
+
+O determiante via Thread: -2969909
+0.703989 
+
+O determiante via Thread: -2969909
+0.717633 
