@@ -23,12 +23,10 @@ void barreira(int nthreads){
     if(contador == (nthreads-1)){
         contador=0;
         pthread_cond_broadcast(&cond_bar);
-        printf("------BAR-------\n");
     }
     else{
         contador++;
         pthread_cond_wait(&cond_bar,&mutex);
-        printf("------BAR-------\n");
     }
     pthread_mutex_unlock(&mutex); //fim secao critica
 }
@@ -42,21 +40,18 @@ void * tarfea (void*args){
     if (id-SALTO > 0){
         for (int i = id-SALTO; i < id; i++){
             aux += VET[i];
-            printf("O aux:%d da Thread %ld\n",aux,id);
         }
     }
         
     if (id-SALTO <= 0){
         for (int i = 0; i < id; i++){
             aux += VET[i];
-            printf("O aux:%d da Thread %ld\n",aux,id);
         }
     }
     
     barreira(NTHREADS);
     //pos barreira se faz a troca na variavel responsavel
     VET[id] += aux;
-    printf("o VET[%ld]:%d\n",id,VET[id]);
     pthread_exit(NULL);
 }
 // main
@@ -85,10 +80,13 @@ int main(int argc,char * argv[]){
     
     //print do VET
     printf("\n");
-    for(int i = 0;i<NTHREADS;i++){
-        printf("%d ",VET[i]);
+    printf("o VET de ENTRADA\n");
+    printf("VET={");
+    for(int i = 0;i<NTHREADS-1;i++){
+        printf("%d ,",VET[i]);
     }
-    printf("\n");
+    printf("%d}",VET[NTHREADS-1]);
+    printf("\n\n");
 
     //cria as Threads
     for (long int i = 0; i < NTHREADS; i++){
