@@ -40,7 +40,7 @@ int main(int argc, char * argv[]){
     thread_lock_init();
 
     //aloca espaco para a Estrutura e
-    createEstrutura();
+    createEstrutura(nLeitores + nEscritores);
     
     //------------------criadno Threads
     //cria as threads leitoras

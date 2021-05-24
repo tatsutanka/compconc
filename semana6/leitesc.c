@@ -2,7 +2,6 @@
 /* Prof.: Silvana Rossetto */
 /* Descricao: implementa  o problema dos leitores/escritores usando variaveis de condicao da biblioteca Pthread
 */
-
 #include<pthread.h>
 #include<stdio.h>
 #include<stdlib.h>

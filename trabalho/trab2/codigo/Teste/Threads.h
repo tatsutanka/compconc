@@ -13,14 +13,11 @@ typedef struct estrutura {
     Queue *q_key; // utilizando o padrao FIFO 
     Queue *q_id; // fila de id com o valor da temperatura
     Queue *q_leitura; // numero de Leituras de um sensor
+    int size;
 }Estrutura;
 
-
 //Inicia Estrutura
-void createEstrutura();
-
-// leitura dos atuadores 
-int readEstrutura(int id,int posicao);
+void createEstrutura(int size);
 
 // inicializador dos locks
 void thread_lock_init();
